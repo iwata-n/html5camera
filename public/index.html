@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+<link rel="shortcut icon" href="">
+
+</head>
+<body>
+
+  <video id="myVideo" width="640" height="480" autoplay="1" ></video>
+
+  <script type="text/javascript">
+   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
+   window.URL = window.URL || window.webkitURL;
+
+   var video = document.getElementById('myVideo');
+   var localStream = null;
+   navigator.getUserMedia({video: true, audio: false},
+    function(stream) { // for success case
+     console.log(stream);
+     video.src = window.URL.createObjectURL(stream);
+    },
+    function(err) { // for error case
+     console.log(err);
+    }
+   );
+
+  </script>
+
+</body>
+</html>
