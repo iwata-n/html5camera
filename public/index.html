@@ -7,7 +7,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="css/style.css">
 <link rel="shortcut icon" href="">
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -20,26 +20,17 @@
 </head>
 <body>
 
-  <video id="myVideo" width="640" height="480" autoplay="1" ></video>
+  <video style="display:none;" id="myVideo" width="640" height="480" autoplay="1" ></video>
+	<canvas width="640" height="480"></canvas>
+  <div>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <button id="download">snap</button>
+  </div>
 
-  <script type="text/javascript">
-   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || window.navigator.mozGetUserMedia;
-   window.URL = window.URL || window.webkitURL;
-
-   var video = document.getElementById('myVideo');
-   var localStream = null;
-   navigator.getUserMedia({video: true, audio: false},
-    function(stream) { // for success case
-     console.log(stream);
-     video.src = window.URL.createObjectURL(stream);
-    },
-    function(err) { // for error case
-     console.log(err);
-    }
-   );
-
-  </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://iwata-n.github.io/pow.js/pow.js"></script>
+<script src="../js/camera.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- webapp -->
 <ins class="adsbygoogle"
